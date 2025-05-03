@@ -17,7 +17,6 @@ def __sync_time_with_ntp() -> None:
         print("Time synchronized with NTP.")
     except Exception as e:
         print(f"Error fetching time from NTP: {e}")
-        return
 
 
 def __boot() -> None:

@@ -4,6 +4,22 @@ import os
 import micropython
 
 
+def get_heap_usage() -> dict:
+    """
+    Get the heap usage of the device.
+
+    :return: A dictionary containing the heap usage.
+    """
+    # collect any outstanding garbage prior to printing heap usage.
+    gc.collect()
+
+    return {
+        "free_heap": gc.mem_free(),
+        "allocated_heap": gc.mem_alloc(),
+        "total_heap": gc.mem_free() + gc.mem_alloc(),
+    }
+
+
 def print_heap_usage() -> None:
     """
     Print the heap usage of the device.
@@ -13,7 +29,7 @@ def print_heap_usage() -> None:
     # collect any outstanding garbage prior to printing heap usage.
 
     gc.collect()
-    print("Free Heap: {}, Allocated Heap: {}".format(gc.mem_free(), gc.mem_alloc()))
+    print(f"Free Heap: {gc.mem_free()}, Allocated Heap: {gc.mem_alloc()}")
 
 
 def print_heap_usage_raw() -> None:

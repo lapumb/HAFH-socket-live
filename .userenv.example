@@ -1,0 +1,5 @@
+export PI_PORT=/dev/cu.usbmodem11101
+export WIFI_SSID="your_ssid"
+export WIFI_PASSWORD="your_psk"
+export CLIENT_NAME="your_client_name"
+export MQTT_BROKER_HOSTNAME="your_MQTT_BROKER_HOSTNAME.local"
